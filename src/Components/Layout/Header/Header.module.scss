@@ -1,0 +1,185 @@
+.wrapper {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    height: var(--header-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    background-color: #fff;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--wrapper-width);
+    padding-right: 24px;
+    padding-left: 20px;
+    & img {
+        display: flex;
+        user-select: none;
+    }
+}
+
+.wrapper-input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+    width: 361px;
+    overflow: hidden;
+    height: 46px;
+    background-color: rgb(241 241 242);
+    border-radius: 92px;
+    padding: 12px 0 12px 16px;
+    & input {
+        width: 292px;
+        font-weight: 400;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        caret-color: rgb(254, 44, 85);
+        &:focus ~ .wrapper-outline {
+            display: block;
+        }
+    }
+
+    & .separate-line {
+        width: 1px;
+        height: 28px;
+        margin: -3px 0;
+        background: rgba(22, 24, 35, 0.12);
+    }
+
+    & .search-button {
+        display: flex;
+        border: none;
+        cursor: pointer;
+        padding: 8px 16px 8px 12px;
+        background-color: transparent;
+        &:hover {
+            background: var(--hover-color);
+        }
+    }
+    & .wrapper-outline {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
+        border-radius: 92px;
+        z-index: -1;
+    }
+}
+
+.right-group {
+    & .link-upload {
+        color: inherit;
+        & .upload-wrapper {
+            min-width: 110px;
+            padding: 0 16px;
+            height: 36px;
+            border: 1px solid rgba(22, 24, 35, 0.12);
+            border-radius: 2px;
+            & img {
+                height: 20px;
+                width: 20px;
+            }
+            & span {
+                margin-left: 8px;
+            }
+        }
+        &:hover {
+            background-color: var(--hover-color);
+        }
+    }
+
+    & .login-button {
+        background-color: var(--primary);
+        font-weight: 700;
+        color: rgba(255, 255, 255, 1);
+        border: none;
+        margin-left: 16px;
+        padding: 6px 8px;
+        border-radius: 4px;
+        height: 36px;
+        min-width: 100px;
+        user-select: none;
+        cursor: pointer;
+        &:hover {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+        }
+    }
+
+    & .more-group {
+        position: relative;
+        & .more-button {
+            display: flex;
+            cursor: pointer;
+            margin: 0 4px 0 20px;
+            height: 20px;
+            width: 20px;
+        }
+        & .more-popup {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 8px;
+            top: calc(100% + 12px);
+            right: -8px;
+            box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+            list-style: none;
+            min-width: 223px;
+            background-color: #fff;
+            transition: opacity 300ms ease 500ms;
+            opacity: 0;
+            // Arrow
+            &::before {
+                position: absolute;
+                content: '';
+                z-index: 1000;
+                right: 8px;
+                top: -6px;
+                border-top: transparent;
+                border-right: 15px solid transparent;
+                border-left: 15px solid transparent;
+                border-bottom: 10px solid #fff;
+            }
+            & .popup-wrapper {
+                position: relative;
+                padding: 8px 12px;
+                &:hover {
+                    background-color: var(--hover-color);
+                }
+            }
+            & img {
+                height: 20px;
+                width: 20px;
+            }
+            & li {
+                display: flex;
+                align-items: center;
+                margin: 8px 0;
+                & span {
+                    margin-left: 8px;
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: -32px;
+                right: 8px;
+                width: 32px;
+                height: 32px;
+            }
+        }
+        &:hover .more-popup {
+            opacity: 1;
+        }
+    }
+}
