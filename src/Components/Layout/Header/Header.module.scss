@@ -24,13 +24,25 @@
     }
 }
 
+.wrapper-account {
+    width: var(--header-width);
+    .account {
+        height: 30px;
+        padding: 5px 12px 5px 12px;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        color: rgba(22, 24, 35, 0.5);
+    }
+}
+
 .wrapper-input {
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     z-index: 1;
-    width: 361px;
+    width: var(--header-width);
     overflow: hidden;
     height: 46px;
     background-color: rgb(241 241 242);
@@ -79,44 +91,6 @@
 }
 
 .right-group {
-    & .link-upload {
-        color: inherit;
-        & .upload-wrapper {
-            min-width: 110px;
-            padding: 0 16px;
-            height: 36px;
-            border: 1px solid rgba(22, 24, 35, 0.12);
-            border-radius: 2px;
-            & img {
-                height: 20px;
-                width: 20px;
-            }
-            & span {
-                margin-left: 8px;
-            }
-        }
-        &:hover {
-            background-color: var(--hover-color);
-        }
-    }
-
-    & .login-button {
-        background-color: var(--primary);
-        font-weight: 700;
-        color: rgba(255, 255, 255, 1);
-        border: none;
-        margin-left: 16px;
-        padding: 6px 8px;
-        border-radius: 4px;
-        height: 36px;
-        min-width: 100px;
-        user-select: none;
-        cursor: pointer;
-        &:hover {
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
-        }
-    }
-
     & .more-group {
         position: relative;
         & .more-button {
@@ -151,31 +125,14 @@
                 border-bottom: 10px solid #fff;
             }
             & .popup-wrapper {
-                position: relative;
-                padding: 8px 12px;
-                &:hover {
-                    background-color: var(--hover-color);
+                justify-content: flex-start;
+                padding: 10px 16px;
+                &:first-child {
+                    margin-top: 8px;
                 }
-            }
-            & img {
-                height: 20px;
-                width: 20px;
-            }
-            & li {
-                display: flex;
-                align-items: center;
-                margin: 8px 0;
-                & span {
-                    margin-left: 8px;
+                &:last-child {
+                    margin-bottom: 8px;
                 }
-            }
-            &::after {
-                content: '';
-                position: absolute;
-                top: -32px;
-                right: 8px;
-                width: 32px;
-                height: 32px;
             }
         }
         &:hover .more-popup {

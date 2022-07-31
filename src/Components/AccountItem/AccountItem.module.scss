@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 9px 16px 9px 12px;
+    overflow: hidden;
+    img {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+        margin: 0 12px 0 4px;
+    }
+    p {
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(22, 24, 35, 0.5);
+        font-weight: 400;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: var(--hover-color);
+    }
+}
