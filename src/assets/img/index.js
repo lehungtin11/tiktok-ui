@@ -8,6 +8,7 @@ const images = {
     language: require('~/assets/img/language.svg').default,
     hotkey: require('~/assets/img/hotkey.svg').default,
     help: require('~/assets/img/help.svg').default,
+    back: require('~/assets/img/back.svg').default,
 };
 
 export default images;

@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Header.module.scss';
@@ -8,13 +8,33 @@ import images from '~/assets/img';
 import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import AccountItem from '~/Components/AccountItem';
 import Button from '~/Components/Button';
+import Menu from '~/Components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 function Header() {
     const [input, setInput] = useState('');
-    const [hover, setHover] = useState(false);
-    var timeId = useRef();
-    var timeId2 = useRef();
+    const MENU_ITEM = [
+        {
+            title: 'Tiếng Việt',
+            icon: images.language,
+            children: {
+                title: 'Ngôn ngữ',
+                data: [
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                ],
+            },
+        },
+        {
+            title: 'Phản hồi và trợ giúp',
+            icon: images.help,
+            to: '/following',
+        },
+        {
+            title: 'Phím tắt trên bàn phím',
+            icon: images.hotkey,
+        },
+    ];
 
     function esc(e) {
         if (e.keyCode === 27) {
@@ -103,42 +123,10 @@ function Header() {
                     <Button style={{ marginLeft: '16px' }} primary>
                         Đăng nhập
                     </Button>
-                    <div
-                        onMouseEnter={() => {
-                            clearTimeout(timeId);
-                            setHover(true);
-                        }}
-                        onMouseLeave={() => {
-                            timeId = setTimeout(() => setHover(false), 700);
-                        }}
-                        className={cx('more-group')}
-                    >
-                        <img className={cx('more-button')} src={images.more} alt="more" />
-                        {hover && (
-                            <ul
-                                onMouseEnter={() => {
-                                    clearTimeout(timeId);
-                                    clearTimeout(timeId2);
-                                    setHover(true);
-                                }}
-                                onMouseLeave={() => {
-                                    timeId2 = setTimeout(() => setHover(false), 700);
-                                }}
-                                className={cx('more-popup', 'text-format')}
-                            >
-                                <Button leftIcon={images.language} className={cx('popup-wrapper')}>
-                                    Tiếng Việt
-                                </Button>
-                                <span>
-                                    <Button leftIcon={images.help} className={cx('popup-wrapper')}>
-                                        Phản hồi và trợ giúp
-                                    </Button>
-                                </span>
-                                <Button leftIcon={images.hotkey} className={cx('popup-wrapper')}>
-                                    Phím tắt trên bàn phím
-                                </Button>
-                            </ul>
-                        )}
+                    <div className={cx('more-group')}>
+                        <Menu items={MENU_ITEM}>
+                            <img className={cx('more-button')} src={images.more} alt="more" />
+                        </Menu>
                     </div>
                 </div>
             </div>

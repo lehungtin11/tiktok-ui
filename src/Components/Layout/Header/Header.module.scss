@@ -100,43 +100,5 @@
             height: 20px;
             width: 20px;
         }
-        & .more-popup {
-            position: absolute;
-            cursor: pointer;
-            border-radius: 8px;
-            top: calc(100% + 12px);
-            right: -8px;
-            box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
-            list-style: none;
-            min-width: 223px;
-            background-color: #fff;
-            transition: opacity 300ms ease 500ms;
-            opacity: 0;
-            // Arrow
-            &::before {
-                position: absolute;
-                content: '';
-                z-index: 1000;
-                right: 8px;
-                top: -6px;
-                border-top: transparent;
-                border-right: 15px solid transparent;
-                border-left: 15px solid transparent;
-                border-bottom: 10px solid #fff;
-            }
-            & .popup-wrapper {
-                justify-content: flex-start;
-                padding: 10px 16px;
-                &:first-child {
-                    margin-top: 8px;
-                }
-                &:last-child {
-                    margin-bottom: 8px;
-                }
-            }
-        }
-        &:hover .more-popup {
-            opacity: 1;
-        }
     }
 }
