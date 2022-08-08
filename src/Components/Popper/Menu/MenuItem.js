@@ -4,8 +4,11 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 function MenuItem({ data, onClick }) {
+    let classes = cx('popup-wrapper', {
+        separate: data.separate,
+    });
     return (
-        <Button leftIcon={data.icon} className={cx('popup-wrapper')} to={data.to} onClick={onClick}>
+        <Button leftIcon={data.icon} className={classes} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     );

@@ -15,6 +15,11 @@
     user-select: none;
     white-space: nowrap;
     cursor: pointer;
+    & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     &:hover {
         background-color: var(--hover-color);
     }

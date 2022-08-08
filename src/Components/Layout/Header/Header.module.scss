@@ -25,6 +25,7 @@
 }
 
 .wrapper-account {
+    font-family: var(--font-family);
     width: var(--header-width);
     .account {
         height: 30px;
@@ -49,7 +50,7 @@
     border-radius: 92px;
     padding: 12px 0 12px 16px;
     & input {
-        width: 292px;
+        width: 252px;
         font-weight: 400;
         outline: none;
         border: none;
@@ -71,12 +72,39 @@
         display: flex;
         border: none;
         cursor: pointer;
-        padding: 8px 16px 8px 12px;
+        padding: 10px 16px 10px 12px;
         background-color: transparent;
         &:hover {
             background: var(--hover-color);
         }
     }
+
+    .wrapper-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        .x {
+            position: absolute;
+            right: 12px;
+        }
+
+        .spinner {
+            position: absolute;
+            right: 12px;
+            animation: 1s Spinner 0s linear infinite;
+        }
+        @keyframes Spinner {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
     & .wrapper-outline {
         display: none;
         position: absolute;
@@ -91,6 +119,52 @@
 }
 
 .right-group {
+    .button-message {
+        margin-left: 16px;
+        padding: 3px 3px 0;
+        .icon-message {
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+    .button-notify {
+        position: relative;
+        display: flex;
+        margin-left: 16px;
+        & sup {
+            position: absolute;
+            right: -4px;
+            top: -6px;
+            display: flex;
+            height: 20px;
+            min-width: 20px;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            color: #fff;
+            background-color: rgb(254, 44, 85);
+            border-radius: 50%;
+            cursor: default;
+        }
+        .icon-notify {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .user-avatar {
+        margin-left: 24px;
+        height: 32px;
+        width: 32px;
+        cursor: pointer;
+        background: center no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+    }
     & .more-group {
         position: relative;
         & .more-button {
@@ -99,6 +173,9 @@
             margin: 0 4px 0 20px;
             height: 20px;
             width: 20px;
+            &:focus {
+                outline: none;
+            }
         }
     }
 }

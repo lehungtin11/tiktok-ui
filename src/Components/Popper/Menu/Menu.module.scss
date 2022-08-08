@@ -7,7 +7,7 @@
 
 .popup-wrapper {
     justify-content: flex-start;
-    padding: 18px 16px;
+    padding: 20px 16px;
     margin-left: 0px;
 }
 
@@ -38,4 +38,8 @@
     font-weight: 600;
     right: 50%;
     transform: translateX(50%);
+}
+
+.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
