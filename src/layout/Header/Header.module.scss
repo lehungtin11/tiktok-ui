@@ -51,7 +51,7 @@
     padding: 12px 0 12px 16px;
     & input {
         width: 252px;
-        font-weight: 400;
+        font-weight: 500;
         outline: none;
         border: none;
         background-color: transparent;
@@ -164,6 +164,7 @@
         background: center no-repeat;
         background-size: cover;
         border-radius: 50%;
+        overflow: hidden;
     }
     & .more-group {
         position: relative;

@@ -9,7 +9,7 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [], hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItems = () => {
@@ -34,6 +34,7 @@ function Menu({ children, items = [] }) {
             offset={[20, 10]}
             placement="bottom-end"
             delay={[0, 600]}
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
@@ -41,7 +42,6 @@ function Menu({ children, items = [] }) {
                             <Header
                                 title="Ngôn ngữ"
                                 onBack={() => {
-                                    console.log(history);
                                     setHistory(history.slice(0, history.length - 1));
                                 }}
                             />

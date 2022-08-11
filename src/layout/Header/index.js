@@ -9,10 +9,12 @@ import Button from '~/Components/Button';
 import Menu from '~/Components/Popper/Menu';
 import { Message, More, Notify } from '~/Components/Icon';
 import SearchInput from './SearchInput';
+import config from '~/config/';
+import Image from '~/assets/img/Image';
 
 const cx = classNames.bind(styles);
 function Header() {
-    const currentUser = false;
+    const currentUser = true;
     const MENU_ITEM = [
         {
             title: 'Tiếng Việt',
@@ -28,7 +30,7 @@ function Header() {
         {
             title: 'Phản hồi và trợ giúp',
             icon: images.help,
-            to: '/following',
+            to: config.routes.following,
         },
         {
             title: 'Phím tắt trên bàn phím',
@@ -39,7 +41,7 @@ function Header() {
         {
             title: 'Xem hồ sơ',
             icon: images.profile,
-            to: '/profile',
+            to: config.routes.profile,
         },
         {
             title: 'Nhận xu',
@@ -63,7 +65,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to="/">
+                <Link to={config.routes.home}>
                     <img src={images.logo} alt="tiktok" />
                 </Link>
 
@@ -75,12 +77,12 @@ function Header() {
                     </Button>
                     {currentUser ? (
                         <>
-                            <Tippy content="Tin nhắn" offset={[, 13]} delay={[0, 100]}>
+                            <Tippy content="Tin nhắn" offset={[0, 13]} delay={[0, 100]}>
                                 <button className={cx('button-message')}>
                                     <Message className={cx('icon-message')} />
                                 </button>
                             </Tippy>
-                            <Tippy content="Hộp thư" offset={[, 10]} delay={[0, 100]}>
+                            <Tippy content="Hộp thư" offset={[0, 10]} delay={[0, 100]}>
                                 <button className={cx('button-notify')}>
                                     <sup>1</sup>
                                     <Notify className={cx('icon-notify')} />
@@ -97,9 +99,9 @@ function Header() {
                     <div className={cx('more-group')}>
                         {currentUser ? (
                             <Menu items={USER_MENU}>
-                                <img
+                                <Image
                                     className={cx('user-avatar')}
-                                    src="https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1662049404035090.jpeg?x-expires=1659751200&x-signature=f4IxDZgBYOimEJDBxewcDTI4Urw%3D"
+                                    src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/04b8243eed4146a004bbb56edc3d1e86~c5_100x100.jpeg?x-expires=1660230000&x-signature=Q6F3Q5Vca1MH9QhcwZr7pHjetrY%3D"
                                     alt="Tín Hùng Lê"
                                 />
                             </Menu>
